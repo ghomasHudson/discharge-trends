@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#102f31">
-    <meta name="description" content="A decade of discharge summaries shows rising requests and longer timeframes for GPs after hospital discharge.">
-    <title>Discharge / Trends</title>
+    <meta name="description" content="A poster companion page for a study of temporal patterns in clinician discharge requests extracted from discharge summaries.">
+    <title>Temporal patterns in discharge requests</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -18,17 +18,17 @@
             <span></span><span></span><span></span>
           </span>
           <span class="wordmark-type">
-            <strong>DISCHARGE</strong>
-            <span>/ TRENDS</span>
+            <strong>DISCHARGE REQUESTS</strong>
+            <span>/ STUDY</span>
           </span>
         </a>
         <nav class="site-nav" aria-label="Primary navigation">
           <a href="#evidence">Evidence</a>
           <a href="#method">Method</a>
-          <a href="#why">Why it matters</a>
+          <a href="#why">Interpretation</a>
         </nav>
         <a class="header-cue" href="#evidence">
-          <span>Scroll to explore</span>
+          <span>View figures</span>
           <span class="header-arrow" aria-hidden="true">&#8595;</span>
         </a>
       </div>
@@ -39,10 +39,10 @@
         <div class="container hero-grid">
           <div class="hero-copy">
             <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Study snapshot / Salford Royal Hospital</p>
-            <h1 id="hero-title">GPs are being asked to do <span>52% more</span> after hospital discharge.</h1>
-            <p class="hero-deck">A large language model was used to read 260,000 discharge summaries and trace how requests to primary care changed over a decade.</p>
+            <h1 id="hero-title">Requests to GPs after hospital discharge were <span>52% higher</span>.</h1>
+            <p class="hero-deck">We used large language model extraction to study GP-directed requests in 260,000 discharge summaries from Salford Royal Hospital across 2014-2023.</p>
             <div class="hero-actions">
-              <a class="button button-light" href="#evidence">Follow the signal <span aria-hidden="true">&#8594;</span></a>
+              <a class="button button-light" href="#evidence">View figures <span aria-hidden="true">&#8594;</span></a>
               <span class="reading-note">10-year study / 2014-2023</span>
             </div>
           </div>
@@ -50,11 +50,11 @@
           <div class="hero-visual">
             <div class="visual-topline">
               <span>REQUESTS / DISCHARGE</span>
-              <span class="visual-live"><i aria-hidden="true"></i> upward trend</span>
+              <span class="visual-live"><i aria-hidden="true"></i> observed trend</span>
             </div>
             <div class="signal-lockup">
               <strong>+52%</strong>
-              <span>average requests<br>per discharge</span>
+              <span>change in average requests<br>per discharge</span>
             </div>
             <svg class="hero-chart" viewBox="0 0 520 250" role="img" aria-label="Illustration of average requests per discharge rising from 2014 to 2023">
               <defs>
@@ -103,19 +103,19 @@
           </div>
           <div class="scope-item">
             <strong>1</strong>
-            <span>handoff under pressure</span>
+            <span>NHS trust dataset</span>
           </div>
-          <p class="scope-caption">What changes when a discharge letter becomes a to-do list?</p>
+          <p class="scope-caption">A text-analysis study of discharge-summary requests.</p>
         </div>
       </section>
 
       <section class="signal-section section-light" aria-labelledby="signal-title">
         <div class="container">
           <div class="section-intro" data-reveal>
-            <p class="section-kicker"><span>01</span> / The signal</p>
+              <p class="section-kicker"><span>01</span> / Summary</p>
             <div>
-              <h2 id="signal-title">Every discharge is a handoff. <em>More of them now carry an ask.</em></h2>
-              <p class="section-lede">The rise is not just in how often requests appear. The work being passed across the hospital-primary care boundary is changing shape too.</p>
+              <h2 id="signal-title">Request frequency, requested timing, and request type changed over time.</h2>
+              <p class="section-lede">The analysis describes temporal patterns in requests documented in discharge summaries. It does not, by itself, measure completed work or clinical burden.</p>
             </div>
           </div>
 
@@ -123,8 +123,8 @@
             <article class="result-card result-card-feature" data-reveal>
               <div class="card-topline"><span>Finding 01</span><span>Volume</span></div>
               <div class="feature-stat">+52<sup>%</sup></div>
-              <h3>More requests per discharge</h3>
-              <p>Compared with the beginning of the study period, each discharge now carries more work for the GP practice to pick up.</p>
+              <h3>Average requests per discharge increased</h3>
+              <p>The estimated average number of GP-directed requests per discharge was higher at the end of the study period than at the beginning.</p>
               <svg class="card-sparkline" viewBox="0 0 460 84" aria-hidden="true">
                 <path d="M2 69 C34 76 45 62 69 68 S101 50 123 59 S153 52 178 53 S210 43 232 45 S264 35 286 42 S315 25 338 31 S365 21 384 27 S422 8 458 13" fill="none" stroke="currentColor" stroke-width="2"></path>
                 <circle cx="458" cy="13" r="4" fill="currentColor"></circle>
@@ -133,16 +133,16 @@
 
             <article class="result-card result-card-time" data-reveal>
               <div class="card-topline"><span>Finding 02</span><span>Timeframe</span></div>
-              <div class="word-stat">LONGER</div>
-              <h3>Requests take more time</h3>
-              <p>The requested interval for follow-up trends upward, stretching the tail of care beyond the hospital stay.</p>
+              <div class="word-stat">Longer timeframes</div>
+              <h3>Requested follow-up intervals increased</h3>
+              <p>The average requested time period associated with extracted requests increased across the study period.</p>
               <div class="trend-arrow" aria-hidden="true"><span></span></div>
             </article>
 
             <article class="result-card result-card-types" data-reveal>
               <div class="card-topline"><span>Finding 03</span><span>Composition</span></div>
-              <div class="word-stat">SHIFTING</div>
-              <h3>What GPs are asked to do changes</h3>
+              <div class="word-stat">Changed composition</div>
+              <h3>Request categories changed</h3>
               <div class="type-compare" aria-label="To be aware requests increase while test review requests decrease">
                 <div><span class="type-bar type-bar-up"></span><strong>To be aware</strong><small>more</small></div>
                 <div><span class="type-bar type-bar-down"></span><strong>Review tests</strong><small>fewer</small></div>
@@ -157,28 +157,28 @@
           <div class="evidence-intro" data-reveal>
             <div>
               <p class="section-kicker section-kicker-dark"><span>02</span> / Evidence</p>
-              <h2 id="evidence-title">The pattern holds across the decade.</h2>
+              <h2 id="evidence-title">Observed temporal patterns.</h2>
             </div>
-            <p>Monthly variation is real. So is the direction of travel. These views show the underlying trends that sit behind the headline.</p>
+            <p>Monthly estimates vary. The figures show the plotted series used to summarise changes over time.</p>
           </div>
 
           <div class="chart-grid">
             <figure class="chart-card chart-card-half" data-reveal>
               <div class="figure-topline"><span>Fig. 01</span><span>Average requests / discharge</span></div>
               <div class="chart-frame"><img src="assets/requests-per-discharge.png" alt="Line chart showing average requests per discharge with an upward smoothed trend from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>More asks, same handoff.</strong> Average requests per discharge rises over the study period, despite month-to-month noise.</figcaption>
+              <figcaption><strong>Average requests per discharge.</strong> The series shows an increase over the study period, with month-to-month variation.</figcaption>
             </figure>
 
             <figure class="chart-card chart-card-half" data-reveal>
               <div class="figure-topline"><span>Fig. 02</span><span>Average requested time</span></div>
               <div class="chart-frame"><img src="assets/request-time.png" alt="Line chart showing average requested time in days trending upward from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>The work lasts longer.</strong> Requested follow-up time trends upward alongside request volume.</figcaption>
+              <figcaption><strong>Average requested time period.</strong> Extracted timeframes associated with requests increase across the study period.</figcaption>
             </figure>
 
             <figure class="chart-card chart-card-wide" data-reveal>
               <div class="figure-topline"><span>Fig. 03</span><span>Absolute counts of request types</span></div>
               <div class="chart-frame"><img src="assets/request-types.png" alt="Stacked bar chart showing absolute counts by request type from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>The mix moves.</strong> Request categories do not all grow in the same way. The content of the handoff is being rebalanced.</figcaption>
+              <figcaption><strong>Request categories.</strong> Absolute counts by extracted request type show changes in category composition over time.</figcaption>
             </figure>
           </div>
         </div>
@@ -189,15 +189,15 @@
           <div class="method-grid">
             <div class="method-copy" data-reveal>
               <p class="section-kicker"><span>03</span> / Reading the letters</p>
-              <h2 id="method-title">From free text to a measurable ask.</h2>
-              <p class="section-lede">Discharge summaries are written for people, not spreadsheets. We prompted a large language model to identify the requests inside them, then grouped each request by type and timeframe.</p>
-              <p class="method-note"><span class="note-mark" aria-hidden="true">+</span> This makes a familiar clinical handoff visible at scale without reducing it to a single count.</p>
+              <h2 id="method-title">Extracting structured variables from discharge-summary text.</h2>
+              <p class="section-lede">We prompted a large language model to identify requests directed to GPs, then classified extracted requests by type and stated timeframe.</p>
+              <p class="method-note"><span class="note-mark" aria-hidden="true">+</span> The results should be interpreted as patterns in documented requests, subject to extraction accuracy and local documentation practice.</p>
             </div>
 
             <div class="letter-card" data-reveal>
               <div class="letter-topline"><span>Discharge summary / extract</span><span class="llm-tag">LLM</span></div>
               <blockquote>&ldquo;Thank you for your continued care. Please <mark>check U+Es in 1-2 weeks</mark>. Ramipril was held due to stage 2 AKI. <mark>Review in a month.</mark>&rdquo;</blockquote>
-              <div class="extract-label">What the model pulls out</div>
+              <div class="extract-label">Example structured extraction</div>
               <div class="extract-grid">
                 <div class="extract-item"><span>Type</span><strong>Blood test</strong></div>
                 <div class="extract-item"><span>Timeframe</span><strong>1-2 weeks</strong></div>
@@ -221,7 +221,7 @@
             <article data-reveal>
               <span class="step-number">03</span>
               <h3>Trace</h3>
-              <p>Follow request types and timeframes over 10 years.</p>
+              <p>Estimate temporal patterns in request frequency, type, and timeframe.</p>
             </article>
           </div>
         </div>
@@ -233,10 +233,10 @@
             <span>52</span><small>%</small>
           </div>
           <div class="why-copy" data-reveal>
-            <p class="section-kicker section-kicker-coral"><span>04</span> / Why it matters</p>
-            <h2 id="why-title">Discharge is not the end of care. <em>It is where the next task begins.</em></h2>
-            <p>Rising request volumes and longer timeframes point to growing post-discharge complexity and system strain. More informational messaging may add to GP workload without matching resources.</p>
-            <div class="takeaway"><span>The takeaway</span><strong>Align commissioning and discharge policy with the work that follows.</strong></div>
+            <p class="section-kicker section-kicker-coral"><span>04</span> / Interpretation</p>
+            <h2 id="why-title">The findings suggest changing expectations at the hospital-primary care interface.</h2>
+            <p>In this dataset, GP-directed requests became more frequent and were associated with longer stated timeframes. These trends may reflect changes in discharge documentation, case complexity, service configuration, or task allocation across care settings.</p>
+            <div class="takeaway"><span>Caution</span><strong>The study quantifies documented requests, not actual task completion, time cost, patient outcomes, or causal drivers.</strong></div>
           </div>
         </div>
       </section>
@@ -262,7 +262,7 @@
             <span>Durham University</span>
             <span>Northern Care Alliance NHS Foundation Trust</span>
           </div>
-          <p class="footer-meta">Research snapshot / designed for the poster QR link</p>
+          <p class="footer-meta">Poster companion page</p>
         </div>
       </div>
     </footer>

@@ -7,9 +7,9 @@
   --paper: #f2eee5;
   --paper-bright: #fbfaf6;
   --paper-deep: #e5dfd2;
-  --coral: #ff7762;
-  --coral-soft: #ffb09d;
-  --yellow: #f5d56d;
+  --coral: #b85f56;
+  --coral-soft: #cf968e;
+  --yellow: #ded0a2;
   --aqua: #96d9d1;
   --muted: #70817b;
   --line: rgba(21, 59, 61, 0.18);
@@ -296,7 +296,7 @@ h3 {
 }
 
 .hero h1 {
-  max-width: 10.2ch;
+  max-width: 12.6ch;
   margin: 28px 0 30px;
   color: var(--paper-bright);
   font-size: clamp(3.6rem, 7.2vw, 6.8rem);
@@ -306,9 +306,9 @@ h3 {
 
 .hero h1 span {
   color: var(--coral);
-  font-family: var(--serif);
-  font-style: italic;
-  letter-spacing: -0.055em;
+  font-family: inherit;
+  font-style: normal;
+  letter-spacing: -0.075em;
   white-space: nowrap;
 }
 
@@ -596,18 +596,19 @@ h2 em {
 .result-card-feature {
   display: flex;
   flex-direction: column;
-  color: var(--paper-bright);
-  background: var(--coral);
-  border-color: var(--coral);
+  color: var(--ink);
+  background: var(--paper-bright);
+  border-color: var(--line);
+  border-top: 4px solid var(--coral);
 }
 
 .result-card-feature .card-topline span:last-child {
-  color: rgba(21, 59, 61, 0.6);
+  color: var(--muted);
 }
 
 .feature-stat {
   margin: 62px 0 11px;
-  color: var(--ink-deep);
+  color: var(--coral);
   font-size: clamp(5.4rem, 10vw, 9.4rem);
   font-weight: 600;
   letter-spacing: -0.11em;
@@ -662,10 +663,10 @@ h2 em {
 .word-stat {
   margin: 77px 0 14px;
   color: var(--ink);
-  font-size: clamp(2.25rem, 4vw, 3.8rem);
-  font-weight: 600;
-  letter-spacing: -0.08em;
-  line-height: 0.8;
+  font-size: clamp(1.55rem, 2.6vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.95;
 }
 
 .trend-arrow {
@@ -1019,7 +1020,7 @@ h2 em {
   position: relative;
   overflow: hidden;
   color: var(--ink-deep);
-  background: var(--coral);
+  background: var(--paper-deep);
 }
 
 .why-section::before {
@@ -1078,7 +1079,7 @@ h2 em {
 }
 
 .why-copy h2 em {
-  color: var(--paper-bright);
+  color: var(--ink-deep);
 }
 
 .why-copy > p:not(.section-kicker) {
