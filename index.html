@@ -1,272 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#102f31">
-    <meta name="description" content="A poster companion page for a study of temporal patterns in clinician discharge requests extracted from discharge summaries.">
-    <title>Temporal patterns in discharge requests</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="wordmark" href="#top" aria-label="Discharge trends home">
-          <span class="wordmark-symbol" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </span>
-          <span class="wordmark-type">
-            <strong>DISCHARGE REQUESTS</strong>
-            <span>/ STUDY</span>
-          </span>
-        </a>
-        <nav class="site-nav" aria-label="Primary navigation">
-          <a href="#evidence">Evidence</a>
-          <a href="#method">Method</a>
-          <a href="#why">Interpretation</a>
-        </nav>
-        <a class="header-cue" href="#evidence">
-          <span>View figures</span>
-          <span class="header-arrow" aria-hidden="true">&#8595;</span>
-        </a>
-      </div>
-    </header>
-
-    <main id="main-content">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Study snapshot / Salford Royal Hospital</p>
-            <h1 id="hero-title">Requests to GPs after hospital discharge were <span>52% higher</span>.</h1>
-            <p class="hero-deck">We used large language model extraction to study GP-directed requests in 260,000 discharge summaries from Salford Royal Hospital across 2014-2023.</p>
-            <div class="hero-actions">
-              <a class="button button-light" href="#evidence">View figures <span aria-hidden="true">&#8594;</span></a>
-              <span class="reading-note">10-year study / 2014-2023</span>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <div class="visual-topline">
-              <span>REQUESTS / DISCHARGE</span>
-              <span class="visual-live"><i aria-hidden="true"></i> observed trend</span>
-            </div>
-            <div class="signal-lockup">
-              <strong>+52%</strong>
-              <span>change in average requests<br>per discharge</span>
-            </div>
-            <svg class="hero-chart" viewBox="0 0 520 250" role="img" aria-label="Illustration of average requests per discharge rising from 2014 to 2023">
-              <defs>
-                <linearGradient id="signal-fill" x1="0" x2="0" y1="0" y2="1">
-                  <stop offset="0" stop-color="#ff7762" stop-opacity="0.35"></stop>
-                  <stop offset="1" stop-color="#ff7762" stop-opacity="0"></stop>
-                </linearGradient>
-              </defs>
-              <g class="hero-chart-grid" aria-hidden="true">
-                <line x1="16" y1="42" x2="504" y2="42"></line>
-                <line x1="16" y1="91" x2="504" y2="91"></line>
-                <line x1="16" y1="140" x2="504" y2="140"></line>
-                <line x1="16" y1="189" x2="504" y2="189"></line>
-                <line x1="16" y1="238" x2="504" y2="238"></line>
-              </g>
-              <path class="hero-chart-area" d="M16 197 C50 224 67 184 91 204 S126 184 145 192 S179 162 197 177 S232 152 252 166 S280 132 304 149 S337 107 355 128 S383 103 403 117 S435 77 454 92 S482 64 504 52 L504 238 L16 238 Z"></path>
-              <path class="hero-chart-line" d="M16 197 C50 224 67 184 91 204 S126 184 145 192 S179 162 197 177 S232 152 252 166 S280 132 304 149 S337 107 355 128 S383 103 403 117 S435 77 454 92 S482 64 504 52"></path>
-              <g class="hero-chart-points" aria-hidden="true">
-                <circle cx="16" cy="197" r="4"></circle>
-                <circle cx="91" cy="204" r="4"></circle>
-                <circle cx="197" cy="177" r="4"></circle>
-                <circle cx="304" cy="149" r="4"></circle>
-                <circle cx="403" cy="117" r="4"></circle>
-                <circle cx="504" cy="52" r="5"></circle>
-              </g>
-              <g class="hero-chart-labels" aria-hidden="true">
-                <text x="16" y="249">2014</text>
-                <text x="458" y="249">2023</text>
-              </g>
-            </svg>
-            <div class="visual-footline">
-              <span>Source: discharge summaries</span>
-              <span>n = 260,000</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="container scope-bar" aria-label="Study scope">
-          <div class="scope-item">
-            <strong>260k</strong>
-            <span>discharge summaries</span>
-          </div>
-          <div class="scope-item">
-            <strong>10</strong>
-            <span>years of data</span>
-          </div>
-          <div class="scope-item">
-            <strong>1</strong>
-            <span>NHS trust dataset</span>
-          </div>
-          <p class="scope-caption">A text-analysis study of discharge-summary requests.</p>
-        </div>
-      </section>
-
-      <section class="signal-section section-light" aria-labelledby="signal-title">
-        <div class="container">
-          <div class="section-intro" data-reveal>
-              <p class="section-kicker"><span>01</span> / Summary</p>
-            <div>
-              <h2 id="signal-title">Request frequency, requested timing, and request type changed over time.</h2>
-              <p class="section-lede">The analysis describes temporal patterns in requests documented in discharge summaries. It does not, by itself, measure completed work or clinical burden.</p>
-            </div>
-          </div>
-
-          <div class="result-grid">
-            <article class="result-card result-card-feature" data-reveal>
-              <div class="card-topline"><span>Finding 01</span><span>Volume</span></div>
-              <div class="feature-stat">+52<sup>%</sup></div>
-              <h3>Average requests per discharge increased</h3>
-              <p>The estimated average number of GP-directed requests per discharge was higher at the end of the study period than at the beginning.</p>
-              <svg class="card-sparkline" viewBox="0 0 460 84" aria-hidden="true">
-                <path d="M2 69 C34 76 45 62 69 68 S101 50 123 59 S153 52 178 53 S210 43 232 45 S264 35 286 42 S315 25 338 31 S365 21 384 27 S422 8 458 13" fill="none" stroke="currentColor" stroke-width="2"></path>
-                <circle cx="458" cy="13" r="4" fill="currentColor"></circle>
-              </svg>
-            </article>
-
-            <article class="result-card result-card-time" data-reveal>
-              <div class="card-topline"><span>Finding 02</span><span>Timeframe</span></div>
-              <div class="word-stat">Longer timeframes</div>
-              <h3>Requested follow-up intervals increased</h3>
-              <p>The average requested time period associated with extracted requests increased across the study period.</p>
-              <div class="trend-arrow" aria-hidden="true"><span></span></div>
-            </article>
-
-            <article class="result-card result-card-types" data-reveal>
-              <div class="card-topline"><span>Finding 03</span><span>Composition</span></div>
-              <div class="word-stat">Changed composition</div>
-              <h3>Request categories changed</h3>
-              <div class="type-compare" aria-label="To be aware requests increase while test review requests decrease">
-                <div><span class="type-bar type-bar-up"></span><strong>To be aware</strong><small>more</small></div>
-                <div><span class="type-bar type-bar-down"></span><strong>Review tests</strong><small>fewer</small></div>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="Temporal patterns in clinician discharge requests">
+  <meta name="description" content="A study of temporal patterns in GP-directed requests extracted from 260,000 discharge summaries from Salford Royal Hospital between 2014 and 2023.">
+  <meta name="keywords" content="discharge summaries, primary care, hospital discharge, large language models, clinical NLP">
+  <meta name="author" content="G. Thomas Hudson, Benjamin D James, Matthew Watson, Olivier Gaillemin, Mark Holland, Darren Green, Noura Al Moubayed">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Temporal patterns in clinician discharge requests">
+  <meta property="og:description" content="Temporal patterns in GP-directed requests extracted from discharge summaries.">
+  <meta name="theme-color" content="#2563eb">
+  <title>Temporal patterns in clinician discharge requests</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="main-content">
+    <section class="hero publication-header">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Temporal patterns in clinician discharge requests: insights from large language model extraction</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">G. Thomas Hudson</span>,
+                <span class="author-block">Benjamin D James</span>,
+                <span class="author-block">Matthew Watson</span>,
+                <span class="author-block">Olivier Gaillemin</span>,
+                <span class="author-block">Mark Holland</span>,
+                <span class="author-block">Darren Green</span>,
+                <span class="author-block">Noura Al Moubayed</span>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="evidence-section" id="evidence" aria-labelledby="evidence-title">
-        <div class="container">
-          <div class="evidence-intro" data-reveal>
-            <div>
-              <p class="section-kicker section-kicker-dark"><span>02</span> / Evidence</p>
-              <h2 id="evidence-title">Observed temporal patterns.</h2>
-            </div>
-            <p>Monthly estimates vary. The figures show the plotted series used to summarise changes over time.</p>
-          </div>
-
-          <div class="chart-grid">
-            <figure class="chart-card chart-card-half" data-reveal>
-              <div class="figure-topline"><span>Fig. 01</span><span>Average requests / discharge</span></div>
-              <div class="chart-frame"><img src="assets/requests-per-discharge.png" alt="Line chart showing average requests per discharge with an upward smoothed trend from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>Average requests per discharge.</strong> The series shows an increase over the study period, with month-to-month variation.</figcaption>
-            </figure>
-
-            <figure class="chart-card chart-card-half" data-reveal>
-              <div class="figure-topline"><span>Fig. 02</span><span>Average requested time</span></div>
-              <div class="chart-frame"><img src="assets/request-time.png" alt="Line chart showing average requested time in days trending upward from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>Average requested time period.</strong> Extracted timeframes associated with requests increase across the study period.</figcaption>
-            </figure>
-
-            <figure class="chart-card chart-card-wide" data-reveal>
-              <div class="figure-topline"><span>Fig. 03</span><span>Absolute counts of request types</span></div>
-              <div class="chart-frame"><img src="assets/request-types.png" alt="Stacked bar chart showing absolute counts by request type from 2014 to 2023" loading="lazy" decoding="async"></div>
-              <figcaption><strong>Request categories.</strong> Absolute counts by extracted request type show changes in category composition over time.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="method-section section-light" id="method" aria-labelledby="method-title">
-        <div class="container">
-          <div class="method-grid">
-            <div class="method-copy" data-reveal>
-              <p class="section-kicker"><span>03</span> / Reading the letters</p>
-              <h2 id="method-title">Extracting structured variables from discharge-summary text.</h2>
-              <p class="section-lede">We prompted a large language model to identify requests directed to GPs, then classified extracted requests by type and stated timeframe.</p>
-              <p class="method-note"><span class="note-mark" aria-hidden="true">+</span> The results should be interpreted as patterns in documented requests, subject to extraction accuracy and local documentation practice.</p>
-            </div>
-
-            <div class="letter-card" data-reveal>
-              <div class="letter-topline"><span>Discharge summary / extract</span><span class="llm-tag">LLM</span></div>
-              <blockquote>&ldquo;Thank you for your continued care. Please <mark>check U+Es in 1-2 weeks</mark>. Ramipril was held due to stage 2 AKI. <mark>Review in a month.</mark>&rdquo;</blockquote>
-              <div class="extract-label">Example structured extraction</div>
-              <div class="extract-grid">
-                <div class="extract-item"><span>Type</span><strong>Blood test</strong></div>
-                <div class="extract-item"><span>Timeframe</span><strong>1-2 weeks</strong></div>
-                <div class="extract-item"><span>Type</span><strong>Medication review</strong></div>
-                <div class="extract-item"><span>Timeframe</span><strong>1 month</strong></div>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">University of Manchester · Durham University · Northern Care Alliance NHS Foundation Trust</span>
               </div>
+              <div class="publication-links">
+                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#abstract"><span class="icon">&#9432;</span><span>Abstract</span></a></span>
+                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#figures"><span class="icon">&#128202;</span><span>Figures</span></a></span>
+                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#citation"><span class="icon">&#60;/&#62;</span><span>Citation</span></a></span>
+              </div>
+              <p class="study-context">Poster companion page · Salford Royal Hospital · 2014–2023</p>
             </div>
           </div>
-
-          <div class="method-steps" aria-label="Study method">
-            <article data-reveal>
-              <span class="step-number">01</span>
-              <h3>Collect</h3>
-              <p>260,000 discharge summaries from Salford Royal Hospital.</p>
-            </article>
-            <article data-reveal>
-              <span class="step-number">02</span>
-              <h3>Extract</h3>
-              <p>Prompt an LLM to find requests directed to GPs.</p>
-            </article>
-            <article data-reveal>
-              <span class="step-number">03</span>
-              <h3>Trace</h3>
-              <p>Estimate temporal patterns in request frequency, type, and timeframe.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="why-section" id="why" aria-labelledby="why-title">
-        <div class="container why-grid">
-          <div class="why-mark" aria-hidden="true">
-            <span>52</span><small>%</small>
-          </div>
-          <div class="why-copy" data-reveal>
-            <p class="section-kicker section-kicker-coral"><span>04</span> / Interpretation</p>
-            <h2 id="why-title">The findings suggest changing expectations at the hospital-primary care interface.</h2>
-            <p>In this dataset, GP-directed requests became more frequent and were associated with longer stated timeframes. These trends may reflect changes in discharge documentation, case complexity, service configuration, or task allocation across care settings.</p>
-            <div class="takeaway"><span>Caution</span><strong>The study quantifies documented requests, not actual task completion, time cost, patient outcomes, or causal drivers.</strong></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-main">
-          <div class="footer-title">
-            <p class="section-kicker section-kicker-dark"><span>Study</span> / Credits</p>
-            <h2>Temporal patterns in clinician discharge requests</h2>
-            <p>Insights from large language model extraction.</p>
-          </div>
-          <div class="footer-authors">
-            <p class="footer-label">Authors</p>
-            <p>G. Thomas Hudson, Benjamin D James, Matthew Watson, Olivier Gaillemin, Mark Holland, Darren Green, Noura Al Moubayed</p>
-          </div>
-        </div>
-
-        <div class="footer-bottom">
-          <div class="affiliation-list" aria-label="Affiliations">
-            <span>University of Manchester</span>
-            <span>Durham University</span>
-            <span>Northern Care Alliance NHS Foundation Trust</span>
-          </div>
-          <p class="footer-meta">Poster companion page</p>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <script src="script.js" defer></script>
-  </body>
+    <section class="section hero is-light study-summary">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3 has-text-centered">Study summary</h2>
+            <div class="summary-grid">
+              <div><strong>260,000</strong><span>discharge summaries</span></div>
+              <div><strong>10 years</strong><span>of records</span></div>
+              <div><strong>52% higher</strong><span>average requests per discharge at study end</span></div>
+            </div>
+            <p class="summary-note">The estimate describes documented GP-directed requests. It is not a direct measure of completed work, time cost, patient outcomes, or causality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abstract">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3 has-text-centered">Abstract</h2>
+            <div class="content has-text-justified academic-copy">
+              <p><strong>Background:</strong> Effective communication at hospital discharge is important for continuity of care. Discharge summaries can include requests for follow-up actions in primary care, but these requests are difficult to study at scale because they are often written in free text.</p>
+              <p><strong>Objective:</strong> To describe temporal patterns in GP-directed requests documented in discharge summaries from one NHS hospital trust.</p>
+              <p><strong>Methods:</strong> We used large language model extraction to identify requests in approximately 260,000 discharge summaries from Salford Royal Hospital between 2014 and 2023. Extracted requests were classified by request type and stated timeframe.</p>
+              <p><strong>Results:</strong> The average number of extracted GP-directed requests per discharge was 52% higher at the end of the study period than at the beginning. Extracted requested timeframes also increased, and the composition of request categories changed over time.</p>
+              <p><strong>Interpretation:</strong> These findings describe changes in documented discharge requests. They should not be interpreted as direct measures of workload, task completion, patient outcomes, or causal change in service delivery.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="methods">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Methods</h2>
+        <div class="columns is-variable is-5 method-columns">
+          <div class="column"><h3 class="title is-5">1. Source data</h3><p>Discharge summaries from Salford Royal Hospital covering 2014–2023.</p></div>
+          <div class="column"><h3 class="title is-5">2. Extraction</h3><p>A large language model was prompted to identify requests directed to GPs or primary care teams.</p></div>
+          <div class="column"><h3 class="title is-5">3. Classification</h3><p>Requests were grouped by type and, where present, stated timeframe before temporal summaries were calculated.</p></div>
+        </div>
+        <div class="example-extraction">
+          <h3 class="title is-5">Example structured extraction</h3>
+          <blockquote>“Thank you for your continued care. Please <mark>check U+Es in 1–2 weeks</mark>. Ramipril was held due to stage 2 AKI. <mark>Review in a month.</mark>”</blockquote>
+          <div class="table-container">
+            <table class="table is-fullwidth is-bordered is-narrow">
+              <thead><tr><th>Request type</th><th>Timeframe</th></tr></thead>
+              <tbody><tr><td>Blood test</td><td>1–2 weeks</td></tr><tr><td>Medication review</td><td>1 month</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="results">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Results</h2>
+        <div class="content academic-copy">
+          <p>The plotted series show month-to-month variation alongside longer-term changes in average requests, requested timeframes, and request categories.</p>
+        </div>
+        <div class="table-container results-table">
+          <table class="table is-fullwidth is-bordered">
+            <thead><tr><th>Measure</th><th>Observed pattern</th><th>Interpretive caution</th></tr></thead>
+            <tbody>
+              <tr><td>Requests per discharge</td><td>Average extracted GP-directed requests were 52% higher at the end of the study period.</td><td>Based on documented requests, not completed work.</td></tr>
+              <tr><td>Requested timeframe</td><td>The average stated timeframe associated with extracted requests increased over time.</td><td>Depends on how timeframes were documented.</td></tr>
+              <tr><td>Request type</td><td>The distribution of extracted request categories changed over time.</td><td>May reflect clinical or documentation practice.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="figures">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Figures</h2>
+        <div class="figure-grid">
+          <figure class="figure-card"><img src="assets/requests-per-discharge.png" alt="Line chart showing average requests per discharge with an upward smoothed trend from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 1.</strong> Average extracted requests per discharge, 2014–2023.</figcaption></figure>
+          <figure class="figure-card"><img src="assets/request-time.png" alt="Line chart showing average requested time in days trending upward from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 2.</strong> Average stated timeframe associated with extracted requests.</figcaption></figure>
+          <figure class="figure-card figure-card-wide"><img src="assets/request-types.png" alt="Stacked bar chart showing absolute counts by request type from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 3.</strong> Absolute counts of extracted request types over time.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="limitations">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Limitations</h2>
+        <div class="content has-text-justified academic-copy">
+          <p>This is a descriptive analysis of requests documented in discharge summaries from a single hospital trust. Observed patterns may reflect changes in clinical need, service configuration, documentation conventions, model extraction performance, or a combination of these factors.</p>
+          <p>The study does not directly measure whether requested actions were completed, how much time they required, whether they were clinically appropriate, or whether they affected patient outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section hero is-light" id="citation">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Citation</h2>
+        <pre class="citation-block"><code>@article{hudson2026discharge,
+  title = {Temporal patterns in clinician discharge requests: insights from large language model extraction},
+  author = {Hudson, G. Thomas and James, Benjamin D and Watson, Matthew and Gaillemin, Olivier and Holland, Mark and Green, Darren and Al Moubayed, Noura},
+  year = {2026}
+}</code></pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container is-max-desktop">
+      <div class="content has-text-centered">
+        <p>This page uses the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>.</p>
+        <p>University of Manchester · Durham University · Northern Care Alliance NHS Foundation Trust</p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
