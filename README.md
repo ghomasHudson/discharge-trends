@@ -1,17 +1,9 @@
-# discharge-trends-site
+# Temporal Patterns in Discharge Summary Requests
 
-Academic project page for *Temporal patterns in clinician discharge requests: Insights from large language model extraction*.
+Project page
 
-The page is based on the [Academic Project Page Template](https://github.com/eliahuhorwitz/Academic-project-page-template), with its Bulma layout and project-page stylesheet adapted for this study.
+## Acknowledgments
+Parts of this project page were adopted from the [Nerfies](https://nerfies.github.io/) page.
 
-## Run locally
-
-This is a dependency-free static site. Open `index.html` directly, or serve the folder with any local static server:
-
-```bash
-python3 -m http.server
-```
-
-## GitHub Pages
-
-Publish the repository from the `main` branch root in **Settings > Pages**. All links and assets use relative paths, so the site works at both a project-page URL and a custom domain.
+## Website License
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.

@@ -3,166 +3,415 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="title" content="Temporal patterns in clinician discharge requests">
-  <meta name="description" content="A study of temporal patterns in GP-directed requests extracted from 260,000 discharge summaries from Salford Royal Hospital between 2014 and 2023.">
-  <meta name="keywords" content="discharge summaries, primary care, hospital discharge, large language models, clinical NLP">
-  <meta name="author" content="G. Thomas Hudson, Benjamin D James, Matthew Watson, Olivier Gaillemin, Mark Holland, Darren Green, Noura Al Moubayed">
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="Temporal Patterns in Discharge Summary Requests: Insights from Large Language Model Extraction">
+  <meta name="description" content="LLM analysis of 260,000 hospital episodes reveals a 52% rise in follow-up requests per discharge, highlighting growing workload transferred to general practice.">
+  <meta name="keywords" content="hospital discharge summaries, large language models, primary care, general practice, follow-up care, workload transfer, temporal trends, natural language processing">
+  <meta name="author" content="G. Thomas Hudson, Benjamin D. James, Matthew Watson, Olivier Gaillemin, Mark Holland, Darren Green, Noura Al Moubayed">
   <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Temporal patterns in clinician discharge requests">
-  <meta property="og:description" content="Temporal patterns in GP-directed requests extracted from discharge summaries.">
+  <meta property="og:site_name" content="Discharge Trends">
+  <meta property="og:title" content="Temporal Patterns in Discharge Summary Requests: Insights from Large Language Model Extraction">
+  <meta property="og:description" content="LLM analysis of 260,000 hospital episodes reveals a 52% rise in follow-up requests per discharge, highlighting growing workload transferred to general practice.">
+  <meta property="og:url" content="https://ghomashudson.github.io/discharge-trends/">
+  <meta property="og:image" content="https://ghomashudson.github.io/discharge-trends/static/images/requests-per-discharge.png">
+  <meta property="og:image:alt" content="Trends in follow-up requests per hospital discharge">
+  <meta property="article:author" content="https://ghomashudson.github.io/">
+  <meta property="article:section" content="Research">
+  <meta property="article:tag" content="Hospital discharge summaries">
+  <meta property="article:tag" content="Large language models">
+  <meta property="article:tag" content="Primary care workload">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Temporal Patterns in Discharge Summary Requests: Insights from Large Language Model Extraction">
+  <meta name="twitter:description" content="LLM analysis of 260,000 hospital episodes reveals a 52% rise in follow-up requests per discharge, highlighting growing workload transferred to general practice.">
+  <meta name="twitter:image" content="https://ghomashudson.github.io/discharge-trends/static/images/requests-per-discharge.png">
+  <meta name="twitter:image:alt" content="Trends in follow-up requests per hospital discharge">
+
+  <!-- Academic/Research Specific -->
+  <meta name="citation_title" content="Temporal Patterns in Discharge Summary Requests: Insights from Large Language Model Extraction">
+  <meta name="citation_author" content="Hudson, G. Thomas">
+  <meta name="citation_author" content="James, Benjamin D.">
+  <meta name="citation_author" content="Watson, Matthew">
+  <meta name="citation_author" content="Gaillemin, Olivier">
+  <meta name="citation_author" content="Holland, Mark">
+  <meta name="citation_author" content="Green, Darren">
+  <meta name="citation_author" content="Al Moubayed, Noura">
+  
+  <!-- Additional SEO -->
+  <link rel="canonical" href="https://ghomashudson.github.io/discharge-trends/">
   <meta name="theme-color" content="#2563eb">
-  <title>Temporal patterns in clinician discharge requests</title>
+  <meta name="msapplication-TileColor" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+  <link rel="preconnect" href="https://documentcloud.adobe.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+
+  <title>Temporal Patterns in Discharge Summary Requests</title>
+  
+  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="apple-touch-icon" href="static/images/favicon.ico">
+  
+  <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Non-critical CSS - Load asynchronously -->
+  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  
+  <!-- Fallback for browsers that don't support preload -->
+  <noscript>
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  </noscript>
+  
+  <!-- Fonts - Optimized loading -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Defer non-critical JavaScript -->
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script defer src="static/js/bulma-carousel.min.js"></script>
+  <script defer src="static/js/bulma-slider.min.js"></script>
+  <script defer src="static/js/index.js"></script>
+  
+  <!-- Structured Data for Academic Papers -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "headline": "Temporal Patterns in Discharge Summary Requests: Insights from Large Language Model Extraction",
+    "description": "LLM analysis of 260,000 hospital episodes reveals a 52% rise in follow-up requests per discharge, highlighting growing workload transferred to general practice.",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "G. Thomas Hudson",
+        "url": "https://ghomashudson.github.io/"
+      },
+      {
+        "@type": "Person",
+        "name": "Benjamin D. James"
+      },
+      {
+        "@type": "Person",
+        "name": "Matthew Watson"
+      },
+      {
+        "@type": "Person",
+        "name": "Olivier Gaillemin"
+      },
+      {
+        "@type": "Person",
+        "name": "Mark Holland"
+      },
+      {
+        "@type": "Person",
+        "name": "Darren Green"
+      },
+      {
+        "@type": "Person",
+        "name": "Noura Al Moubayed"
+      }
+    ],
+    "url": "https://ghomashudson.github.io/discharge-trends/",
+    "image": "https://ghomashudson.github.io/discharge-trends/static/images/requests-per-discharge.png",
+    "keywords": ["hospital discharge summaries", "large language models", "primary care", "general practice", "follow-up care", "workload transfer", "temporal trends", "natural language processing"],
+    "abstract": "When a patient leaves hospital, discharge summaries often contain requests for GPs to carry out follow-up care. But how has this workload changed over time, and what does it mean for primary care? Using large language models (LLMs), we analysed 260,000 hospital episodes over nearly a decade to track these requests. We found a 52% increase in requests per discharge, alongside longer completion timeframes and growing volumes of informational messages. Our findings reveal an increasing and often hidden transfer of workload from hospitals to GPs, with important implications for primary care resources and discharge policy.",
+    "isAccessibleForFree": true,
+    "mainEntity": {
+      "@type": "WebPage",
+      "@id": "https://ghomashudson.github.io/discharge-trends/"
+    },
+    "about": [
+      {
+        "@type": "Thing",
+        "name": "Hospital discharge summaries"
+      },
+      {
+        "@type": "Thing", 
+        "name": "Primary care workload"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Website Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Discharge Trends",
+    "url": "https://ghomashudson.github.io/discharge-trends/"
+  }
+  </script>
 </head>
 <body>
-  <main id="main-content">
-    <section class="hero publication-header">
-      <div class="hero-body">
-        <div class="container is-max-desktop">
-          <div class="columns is-centered">
-            <div class="column has-text-centered">
-              <h1 class="title is-1 publication-title">Temporal patterns in clinician discharge requests: insights from large language model extraction</h1>
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">G. Thomas Hudson</span>,
-                <span class="author-block">Benjamin D James</span>,
-                <span class="author-block">Matthew Watson</span>,
-                <span class="author-block">Olivier Gaillemin</span>,
-                <span class="author-block">Mark Holland</span>,
-                <span class="author-block">Darren Green</span>,
-                <span class="author-block">Noura Al Moubayed</span>
-              </div>
-              <div class="is-size-5 publication-authors">
-                <span class="author-block">University of Manchester · Durham University · Northern Care Alliance NHS Foundation Trust</span>
-              </div>
-              <div class="publication-links">
-                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#abstract"><span class="icon">&#9432;</span><span>Abstract</span></a></span>
-                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#figures"><span class="icon">&#128202;</span><span>Figures</span></a></span>
-                <span class="link-block"><a class="external-link button is-normal is-rounded is-dark" href="#citation"><span class="icon">&#60;/&#62;</span><span>Citation</span></a></span>
-              </div>
-              <p class="study-context">Poster companion page · Salford Royal Hospital · 2014–2023</p>
-            </div>
+
+
+  <!-- Scroll to Top Button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- More Works Dropdown -->
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works from Our Lab</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <!-- TODO: Replace with your lab's related works -->
+        <a href="https://ghomashudson.github.io/gpconcordance" class="work-item" target="_blank">
+          <div class="work-info">
+            <!-- TODO: Replace with actual paper title -->
+            <h5>Clinician Language in Discharge Requests: Using Large Language Models to Predict Transitional Care Breakdown</h5>
+            <!-- TODO: Replace with brief description -->
+            <p>Predicting whether the blood test requests given to GPs will be completed.</p>
+            <!-- TODO: Replace with venue and year -->
+            <!-- <span class="work-venue">Conference/Journal 2024</span> -->
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hero is-light study-summary">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3 has-text-centered">Study summary</h2>
-            <div class="summary-grid">
-              <div><strong>260,000</strong><span>discharge summaries</span></div>
-              <div><strong>10 years</strong><span>of records</span></div>
-              <div><strong>52% higher</strong><span>average requests per discharge at study end</span></div>
-            </div>
-            <p class="summary-note">The estimate describes documented GP-directed requests. It is not a direct measure of completed work, time cost, patient outcomes, or causality.</p>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <!-- TODO: Add more related works or remove extra items -->
+        <a href="https://www.nature.com/articles/s41746-026-02636-z" class="work-item" target="_blank">
+          <div class="work-info">
+            <h5>Automating the quality monitoring of a hospital discharge summary improvement project utilising large language models</h5>
+            <p>Replicating a hospital quality improvement project (QIP) using AI.</p>
+            <span class="work-venue">Communications Medicine 2026</span>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="abstract">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column is-four-fifths">
-            <h2 class="title is-3 has-text-centered">Abstract</h2>
-            <div class="content has-text-justified academic-copy">
-              <p><strong>Background:</strong> Effective communication at hospital discharge is important for continuity of care. Discharge summaries can include requests for follow-up actions in primary care, but these requests are difficult to study at scale because they are often written in free text.</p>
-              <p><strong>Objective:</strong> To describe temporal patterns in GP-directed requests documented in discharge summaries from one NHS hospital trust.</p>
-              <p><strong>Methods:</strong> We used large language model extraction to identify requests in approximately 260,000 discharge summaries from Salford Royal Hospital between 2014 and 2023. Extracted requests were classified by request type and stated timeframe.</p>
-              <p><strong>Results:</strong> The average number of extracted GP-directed requests per discharge was 52% higher at the end of the study period than at the beginning. Extracted requested timeframes also increased, and the composition of request categories changed over time.</p>
-              <p><strong>Interpretation:</strong> These findings describe changes in documented discharge requests. They should not be interpreted as direct measures of workload, task completion, patient outcomes, or causal change in service delivery.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hero is-light" id="methods">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Methods</h2>
-        <div class="columns is-variable is-5 method-columns">
-          <div class="column"><h3 class="title is-5">1. Source data</h3><p>Discharge summaries from Salford Royal Hospital covering 2014–2023.</p></div>
-          <div class="column"><h3 class="title is-5">2. Extraction</h3><p>A large language model was prompted to identify requests directed to GPs or primary care teams.</p></div>
-          <div class="column"><h3 class="title is-5">3. Classification</h3><p>Requests were grouped by type and, where present, stated timeframe before temporal summaries were calculated.</p></div>
-        </div>
-        <div class="example-extraction">
-          <h3 class="title is-5">Example structured extraction</h3>
-          <blockquote>“Thank you for your continued care. Please <mark>check U+Es in 1–2 weeks</mark>. Ramipril was held due to stage 2 AKI. <mark>Review in a month.</mark>”</blockquote>
-          <div class="table-container">
-            <table class="table is-fullwidth is-bordered is-narrow">
-              <thead><tr><th>Request type</th><th>Timeframe</th></tr></thead>
-              <tbody><tr><td>Blood test</td><td>1–2 weeks</td></tr><tr><td>Medication review</td><td>1 month</td></tr></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="results">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Results</h2>
-        <div class="content academic-copy">
-          <p>The plotted series show month-to-month variation alongside longer-term changes in average requests, requested timeframes, and request categories.</p>
-        </div>
-        <div class="table-container results-table">
-          <table class="table is-fullwidth is-bordered">
-            <thead><tr><th>Measure</th><th>Observed pattern</th><th>Interpretive caution</th></tr></thead>
-            <tbody>
-              <tr><td>Requests per discharge</td><td>Average extracted GP-directed requests were 52% higher at the end of the study period.</td><td>Based on documented requests, not completed work.</td></tr>
-              <tr><td>Requested timeframe</td><td>The average stated timeframe associated with extracted requests increased over time.</td><td>Depends on how timeframes were documented.</td></tr>
-              <tr><td>Request type</td><td>The distribution of extracted request categories changed over time.</td><td>May reflect clinical or documentation practice.</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hero is-light" id="figures">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Figures</h2>
-        <div class="figure-grid">
-          <figure class="figure-card"><img src="assets/requests-per-discharge.png" alt="Line chart showing average requests per discharge with an upward smoothed trend from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 1.</strong> Average extracted requests per discharge, 2014–2023.</figcaption></figure>
-          <figure class="figure-card"><img src="assets/request-time.png" alt="Line chart showing average requested time in days trending upward from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 2.</strong> Average stated timeframe associated with extracted requests.</figcaption></figure>
-          <figure class="figure-card figure-card-wide"><img src="assets/request-types.png" alt="Stacked bar chart showing absolute counts by request type from 2014 to 2023" loading="lazy"><figcaption><strong>Figure 3.</strong> Absolute counts of extracted request types over time.</figcaption></figure>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="limitations">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Limitations</h2>
-        <div class="content has-text-justified academic-copy">
-          <p>This is a descriptive analysis of requests documented in discharge summaries from a single hospital trust. Observed patterns may reflect changes in clinical need, service configuration, documentation conventions, model extraction performance, or a combination of these factors.</p>
-          <p>The study does not directly measure whether requested actions were completed, how much time they required, whether they were clinically appropriate, or whether they affected patient outcomes.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section hero is-light" id="citation">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Citation</h2>
-        <pre class="citation-block"><code>@article{hudson2026discharge,
-  title = {Temporal patterns in clinician discharge requests: insights from large language model extraction},
-  author = {Hudson, G. Thomas and James, Benjamin D and Watson, Matthew and Gaillemin, Olivier and Holland, Mark and Green, Darren and Al Moubayed, Noura},
-  year = {2026}
-}</code></pre>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container is-max-desktop">
-      <div class="content has-text-centered">
-        <p>This page uses the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>.</p>
-        <p>University of Manchester · Durham University · Northern Care Alliance NHS Foundation Trust</p>
+          <i class="fas fa-external-link-alt"></i>
+        </a>
+        <!-- <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank"> -->
+        <!--   <div class="work-info"> -->
+        <!--     <h5>Paper Title 3</h5> -->
+        <!--     <p>Brief description of the work and its main contribution.</p> -->
+        <!--     <span class="work-venue">Conference/Journal 2023</span> -->
+        <!--   </div> -->
+        <!--   <i class="fas fa-external-link-alt"></i> -->
+        <!-- </a> -->
       </div>
     </div>
-  </footer>
-</body>
-</html>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body" style="padding-bottom:0">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- TODO: Replace with your paper title -->
+            <h1 class="title is-1 publication-title">Temporal Patterns in Discharge Summary Requests</h1>
+<h2 class="subtitle is-4 publication-subtitle">Insights from Large Language Model Extraction</h2>
+            <div class="is-size-5 publication-authors">
+              <!-- TODO: Replace with your paper authors and their personal links -->
+              <span class="author-block"><a href="https://ghomashudson.github.io" target="_blank">G. Thomas Hudson</a><sup>*</sup>,</span>
+              <span class="author-block"><a href="https://orcid.org/0009-0003-8047-7967" target="_blank">Benjamin D. James</a><sup>*</sup>,</span>
+              <span class="author-block"><a href="https://www.durham.ac.uk/staff/matthew-s-watson/" target="_blank">Matthew Watson</a></span>,
+              <span class="author-block"><a href="https://www.researchgate.net/profile/Olivier-Gaillemin" target="_blank">Olivier Gaillemin</a></span>,
+              <span class="author-block"><a href="https://orcid.org/0000-0001-8336-5336" target="_blank">Mark Holland</a></span>,
+              <span class="author-block"><a href="https://orcid.org/0000-0002-9370-8176" target="_blank">Darren Green</a></span>,
+              <span class="author-block"><a href="https://www.durham.ac.uk/staff/noura-al-moubayed" target="_blank">Noura Al Moubayed</a></span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- TODO: Update with your arXiv paper ID -->
+                    <!--   <span class="link-block"> -->
+                    <!--     <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank" -->
+                    <!--     class="external-link button is-normal is-rounded is-dark"> -->
+                    <!--     <span class="icon"> -->
+                    <!--       <i class="fas fa-file-pdf"></i> -->
+                    <!--     </span> -->
+                    <!--     <span>Paper</span> -->
+                    <!--   </a> -->
+                    <!-- </span> -->
+
+
+                <span class="link-block">
+                  <a href="static/pdfs/poster.pdf" target="_blank" rel="noopener"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body" style="padding-top:0;padding-bottom:0">
+      <video
+        id="tree"
+        class="teaser-video"
+        poster="static/images/banner-video-poster.png"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Animated overview of extracting GP requests from hospital discharge summaries with a large language model and analysing longitudinal trends"
+      >
+        <source src="static/videos/banner_video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified" style="font-size:20px">
+          <p>
+          When a patient leaves hospital, discharge summaries often contain requests for GPs to carry out follow-up care. But how has this workload changed over time, and what does it mean for primary care?</p>
+          <p>
+Using large language models (LLMs), we analysed 260,000 hospital episodes over nearly a decade to track these requests. We found a 52% increase in requests per discharge, alongside longer completion timeframes and growing volumes of informational messages. Our findings reveal an increasing and often hidden transfer of workload from hospitals to GPs, with important implications for primary care resources and discharge policy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+       <div class="item">
+        <img src="static/images/requests-per-discharge.png" alt="Monthly average follow-up requests per discharge from 2014 to 2023, with a smoothed trend showing an increase over time" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          Average follow-up requests per discharge increased over the study period.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/requested-timeframe.png" alt="Average requested completion timeframe in days from 2014 to 2023, with an upward linear trend" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+          The average requested timeframe for completing follow-up care became longer over time.
+        </h2>
+      </div>
+      <div class="item">
+        <img src="static/images/request-types.png" alt="Stacked monthly counts of follow-up requests by type, including blood tests, medication reviews, referrals, and symptom monitoring" loading="lazy"/>
+        <h2 class="subtitle has-text-centered">
+         Monthly follow-up request counts, grouped by request type.
+       </h2>
+     </div>
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+
+
+
+<!-- Youtube video -->
+<!-- <section class="hero is-small is-light"> -->
+<!--   <div class="hero-body"> -->
+<!--     <div class="container"> -->
+<!--       <!-- Paper video. -->
+<!--       <h2 class="title is-3">Video Presentation</h2> -->
+<!--       <div class="columns is-centered has-text-centered"> -->
+<!--         <div class="column is-four-fifths"> -->
+<!--            -->
+<!--           <div class="publication-video"> -->
+<!--             <!-- TODO: Replace with your YouTube video ID -->
+<!--             <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+<!--           </div> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </div> -->
+<!-- </section> -->
+<!-- End youtube video -->
+
+<!--BibTex citation -->
+<!--   <section class="section" id="BibTeX"> -->
+<!--     <div class="container is-max-desktop content"> -->
+<!--       <div class="bibtex-header"> -->
+<!--         <h2 class="title">BibTeX</h2> -->
+<!--         <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard"> -->
+<!--           <i class="fas fa-copy"></i> -->
+<!--           <span class="copy-text">Copy</span> -->
+<!--         </button> -->
+<!--       </div> -->
+<!--       <pre id="bibtex-code"><code>@article{YourPaperKey2024, -->
+<!--   title={Your Paper Title Here}, -->
+<!--   author={First Author and Second Author and Third Author}, -->
+<!--   journal={Conference/Journal Name}, -->
+<!--   year={2024}, -->
+<!--   url={https://your-domain.com/your-project-page} -->
+<!-- }</code></pre> -->
+<!--     </div> -->
+<!-- </section> -->
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
