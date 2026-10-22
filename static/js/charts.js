@@ -98,7 +98,7 @@
           legend: {display: false},
           tooltip: {
             filter: context => stacked || context.datasetIndex === 0,
-            callbacks: {label: context => `${context.dataset.label}: ${format(context.parsed.y)}`},
+            callbacks: {label: context => stacked ? '' : `${context.dataset.label}: ${format(context.parsed.y)}`},
           },
         },
         scales: {
