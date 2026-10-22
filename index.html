@@ -53,7 +53,6 @@
   <!-- Preconnect for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
   <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
@@ -68,17 +67,14 @@
   <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/charts.css">
   
   <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   
   <!-- Fallback for browsers that don't support preload -->
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
@@ -87,12 +83,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+  <script defer src="static/js/chart-data.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script defer src="static/js/charts.js"></script>
   
   <!-- Structured Data for Academic Papers -->
   <script type="application/ld+json">
@@ -316,34 +312,49 @@ Using large language models (LLMs), we analysed 260,000 hospital episodes over n
 
 
 
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <img src="static/images/requests-per-discharge.png" alt="Monthly average follow-up requests per discharge from 2014 to 2023, with a smoothed trend showing an increase over time" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Average follow-up requests per discharge increased over the study period.
-        </h2>
+<!-- Interactive findings -->
+<section class="section findings" aria-labelledby="findings-title">
+  <div class="container">
+
+    <article class="finding" aria-labelledby="requests-title">
+      <div class="finding-copy">
+        <h3 id="requests-title">Discharges contain 52% more requests</h3>
+        <p>The number of follow-up requests per discharge rose over the study period, from approximately <strong>0.95 to 1.46</strong>.</p>
+        <p>Each discharge summary now carries more tasks directed to primary care. Explanations could include increasingly complex patients, more comprehensive follow-up planning, a transfer of work from secondary to primary care, or more defensive communication. 
+</p>
       </div>
-      <div class="item">
-        <img src="static/images/requested-timeframe.png" alt="Average requested completion timeframe in days from 2014 to 2023, with an upward linear trend" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          The average requested timeframe for completing follow-up care became longer over time.
-        </h2>
+      <figure class="chart-panel" data-chart="requests" aria-labelledby="requests-caption">
+        <figcaption id="requests-caption">Average requests per discharge</figcaption>
+        <div class="chart-canvas"><img src="static/images/requests-per-discharge.png" alt="Monthly requests per discharge rise from around 0.95 to 1.46." loading="lazy"></div>
+      </figure>
+    </article>
+
+    <article class="finding" aria-labelledby="timeframe-title">
+      <div class="finding-copy">
+        <h3 id="timeframe-title">Suggested timeframes are longer</h3>
+        <p>Among requests that specified a timeframe, the mean requested completion time increased from approximately <strong>16 to 25 days</strong>.</p>
+        <p>These are the timeframes specified by the hospital, rather than how long the GP actually took to complete the task.</p>
+        <p>One likely explanation is increasing adoption of guidance discouraging hospitals from asking primary care to undertake actions within the first 14 days after discharge. So this may represent an improvement in the appropriateness of some requests.</p>
       </div>
-      <div class="item">
-        <img src="static/images/request-types.png" alt="Stacked monthly counts of follow-up requests by type, including blood tests, medication reviews, referrals, and symptom monitoring" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Monthly follow-up request counts, grouped by request type.
-       </h2>
-     </div>
+      <figure class="chart-panel" data-chart="timeframe" aria-labelledby="timeframe-caption">
+        <figcaption id="timeframe-caption">Average requested completion time</figcaption>
+        <div class="chart-canvas"><img src="static/images/requested-timeframe.png" alt="Average requested completion time increases from approximately 15 to 26 days." loading="lazy"></div>
+      </figure>
+    </article>
+
+    <article class="finding" aria-labelledby="types-title">
+      <div class="finding-copy">
+        <h3 id="types-title">A changing mix of requests</h3>
+        <p>Informational <strong>“to be aware” messages</strong> accounted for a growing share of requests. The share asking GPs to review hospital test results declined.</p>
+      </div>
+      <figure class="chart-panel" data-chart="types" aria-labelledby="types-caption">
+        <figcaption id="types-caption">Share of requests by type</figcaption>
+        <div class="chart-canvas"><img src="static/images/request-types.png" alt="Monthly request types across the study period. Enable JavaScript to explore proportions from the source figure." loading="lazy"></div>
+        <div class="chart-legend" hidden></div>
+      </figure>
+    </article>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
 
 
 
@@ -414,5 +425,6 @@ Using large language models (LLMs), we analysed 260,000 hospital episodes over n
 
     <!-- End of Statcounter Code -->
 
+  </main>
   </body>
   </html>
